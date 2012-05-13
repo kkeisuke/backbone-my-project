@@ -1,0 +1,12 @@
+exec = (require 'child_process').exec
+
+files=[
+  'coffee/projectName.coffee'
+  'coffee/projectName/views/appview.coffee'
+  'coffee/projectName/router.coffee'
+  'coffee/setup.coffee'
+]
+
+exec "coffee -j js/main.js -wc #{files.join ' '}",(err,stdout,stderr)->
+  throw err if err
+  console.log stdout+stderr
